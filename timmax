@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+int n,m,k,c[100000],d[10000],min1;
+bool kt=false;
+int main()
+{
+  freopen("timmax.inp","r",stdin);
+  freopen("timmax.out","w",stdout);
+  cin>>n>>m;
+  int b=m;min1=n;
+  for(int i=1;i<=n;i++)
+    {int a=i;for(int j=2;j<=i;j++)
+   while(a%j==0)
+  {
+      a=a/j;
+      c[j]++;
+  }
+  }
+  for(int i=2;i<=b;i++)
+    while(b%i==0)
+  {
+      b=b/i;
+      d[i]++;
+  }
+  for(int i=2;i<=m;i++) if(c[i]!=0&&d[i]!=0) if(c[i]/d[i]<min1) {min1=c[i]/d[i];kt=true;}
+ // for(int i=1;i<=n;i++) if(c[i]!=0) cout<<i<<"^"<<c[i]<<" "; cout<<endl;
+ // for(int i=1;i<=m;i++) if(d[i]!=0) cout<<i<<"^"<<d[i]<<" "; cout<<endl;
+  if(kt==true) cout<<min1; else cout<<0;
+    return 0;
+}
